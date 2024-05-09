@@ -1900,7 +1900,7 @@ window.EJS_main = function(_0xa88a13, _0x17edbf, _0x2c1832) {
                         getRetroArchCfg += 'video_font_enable = false\n';
                         getRetroArchCfg += 'video_scale = 1.0\n';
                         getRetroArchCfg += 'video_gpu_screenshot = false\n';
-                         += 'audio_latency = 64\n';
+                        getRetroArchCfg += 'audio_latency = 64\n';
                         getRetroArchCfg += 'video_frame_delay = 13\n';
                         getRetroArchCfg += 'aspect_ratio_index = 1\n';
                         const system = getSystem(_this.system, true);
