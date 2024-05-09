@@ -1931,8 +1931,9 @@ window.EJS_main = function(_0xa88a13, _0x17edbf, _0x2c1832) {
                             _0x4d7024._FS.createFolder('/home/web_user/retroarch', 'userdata', true, true);
                             _0x4d7024.FS.createDataFile('/home/web_user/retroarch/userdata', 'retroarch.cfg', _0x32dd27, true, true);
 
-                           // _0x4d7024._FS.createFolder('/home/web_user/retroarch/userdata/config/', 'Snes9x', true, true);
-                            //  _0x4d7024.FS.createDataFile('/home/web_user/retroarch/userdata/config/Snes9x', 'Snes9x.opt', true, true);
+                            _0x4d7024._FS.createFolder('/home/web_user/retroarch/userdata', 'config', true, true);
+                            _0x4d7024._FS.createFolder('/home/web_user/retroarch/userdata/config', 'Snes9x', true, true);
+                            _0x4d7024.FS.createDataFile('/home/web_user/retroarch/userdata/config/Snes9x', 'Snes9x.opt', true, true);
                             
                         } else {
                             _0x4d7024.FS.createDataFile('/etc', 'retroarch.cfg', getRetroArchCfg, true, true);
