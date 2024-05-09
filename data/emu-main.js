@@ -1891,37 +1891,53 @@ window.EJS_main = function(_0xa88a13, _0x17edbf, _0x2c1832) {
                         _0x4d7024.FS.mkdir('/shader');
                         _0x4d7024.FS.syncfs(true, function(_0x1a8f12) {});
                         _0xdcec2a.initShaders();
-                        let _0x14d39f = '';
-                        _0x14d39f += 'savefile_directory = /data/saves\n';
-                        _0x14d39f += 'video_vsync = true\n';
-                        _0x14d39f += 'screenshot_directory = /\n';
-                        _0x14d39f += 'video_shader = /shader/shader.glslp\n';
-                        _0x14d39f += 'video_shader_enable = true\n';
-                        _0x14d39f += 'video_font_enable = false\n';
-                        _0x14d39f += 'video_scale = 1.0\n';
-                        _0x14d39f += 'video_gpu_screenshot = false\n';
-                        _0x14d39f += 'audio_latency = 96\n';
+                        let getRetroArchCfg = '';
+                        getRetroArchCfg += 'savefile_directory = /data/saves\n';
+                        getRetroArchCfg += 'video_vsync = false\n';
+                        getRetroArchCfg += 'screenshot_directory = /\n';
+                        getRetroArchCfg += 'video_shader = /shader/shader.glslp\n';
+                        getRetroArchCfg += 'video_shader_enable = true\n';
+                        getRetroArchCfg += 'video_font_enable = false\n';
+                        getRetroArchCfg += 'video_scale = 1.0\n';
+                        getRetroArchCfg += 'video_gpu_screenshot = false\n';
+                         += 'audio_latency = 64\n';
+                        getRetroArchCfg += 'video_frame_delay = 13\n';
+                        getRetroArchCfg += 'aspect_ratio_index = 1\n';
                         const system = getSystem(_this.system, true);
                         let _0x36edb7 = _0x2593da.defaultCoreOptionsValues.call(_this);
-                        _this.lightgun && ('nes' === system && (_0x14d39f += 'input_libretro_device_p2 = "258"\n'), 'segaMS' !== system && 'segaMD' !== system && 'segaCD' !== system || (_0x36edb7.genesis_plus_gx_gun_cursor = 'yes', _0x36edb7.genesis_plus_gx_invert_mouse = 'yes', _0x36edb7.genesis_plus_gx_bram = 'per game', _0x14d39f += 'input_libretro_device_p2 = "260"\n'), 'snes' === system && (_0x14d39f += 'input_libretro_device_p2 = "260"\n'), ['snes2002', 'snes2005', 'snes2010', 'snesnext'].includes(system) && (_0x14d39f += 'input_libretro_device_p2 = "260"\n'));
-                        _this.mouse && ('snes' === system && (_0x14d39f += 'input_libretro_device_p1 = 2\n'), ['snes2002', 'snes2005', 'snes2010', 'snesnext'].includes(system) && (_0x14d39f += 'input_libretro_device_p1 = 2\n'));
-                        _this.multitap && (['snes2002', 'snes2005', 'snes2010', 'snesnext', 'snes'].includes(system) && (_0x14d39f += 'input_libretro_device_p2 = 257\n'));
-                        'n64' === system && (_0x14d39f += 'input_libretro_device_p1 = 5\n');
-                        _0x14d39f += 'fastforward_ratio = 1.0\n';
-                        _0x14d39f += 'video_smooth = false\n';
+                        _this.lightgun && ('nes' === system && (getRetroArchCfg += 'input_libretro_device_p2 = "258"\n'), 'segaMS' !== system && 'segaMD' !== system && 'segaCD' !== system || (_0x36edb7.genesis_plus_gx_gun_cursor = 'yes', _0x36edb7.genesis_plus_gx_invert_mouse = 'yes', _0x36edb7.genesis_plus_gx_bram = 'per game', getRetroArchCfg += 'input_libretro_device_p2 = "260"\n'), 'snes' === system && (getRetroArchCfg += 'input_libretro_device_p2 = "260"\n'), ['snes2002', 'snes2005', 'snes2010', 'snesnext'].includes(system) && (getRetroArchCfg += 'input_libretro_device_p2 = "260"\n'));
+                        _this.mouse && ('snes' === system && (getRetroArchCfg += 'input_libretro_device_p1 = 2\n'), ['snes2002', 'snes2005', 'snes2010', 'snesnext'].includes(system) && (getRetroArchCfg += 'input_libretro_device_p1 = 2\n'));
+                        _this.multitap && (['snes2002', 'snes2005', 'snes2010', 'snesnext', 'snes'].includes(system) && (getRetroArchCfg += 'input_libretro_device_p2 = 257\n'));
+                        'n64' === system && (getRetroArchCfg += 'input_libretro_device_p1 = 5\n');
+                        getRetroArchCfg += 'fastforward_ratio = 1.0\n';
+                        getRetroArchCfg += 'video_smooth = false\n';
                         let _0x55117c = _0x5dc0c0(_0x36edb7, _0x2593da.storage.get('core-options') || {}),
                             _0x32dd27 = '';
                         if (_this.coreVer === 2) {
-                            _0x4d7024.FS.createDataFile('/etc', 'retroarch.cfg', _0x14d39f, true, true);
+                            var snes9x_opcoes= 'snes9x_overclock_superfx = "500%"\n'+
+                          'snes9x_overclock_cycles = "max"\n'+
+                         //'snes9x_overclock_cycles = "compatible"\n'+
+                         'snes9x_block_invalid_vram_access = "enabled"\n'+
+                        'snes9x_echo_buffer_hack = "enabled"\n'+
+                          'snes9x_hires_blend = "merge"\n'+
+                          'snes9x_gfx_clip = "enabled"\n'+
+                          'snes9x_gfx_transp = "enabled"\n'+
+                          'snes9x_randomize_memory = "enabled"\n'+
+                          'snes9x_reduce_sprite_flicker = "enabled"\n'+
+                          'snes9x_overscan = "enabled"\n';
+        _0x4d7024.writeFile("/home/web_user/retroarch/userdata/config/Snes9x/Snes9x.opt", snes9x_opcoes);
+                            _0x4d7024.FS.createDataFile('/etc', 'retroarch.cfg', getRetroArchCfg, true, true);
                             _0x4d7024._FS.createFolder('/home/web_user', 'retroarch', true, true);
                             _0x4d7024._FS.createFolder('/home/web_user/retroarch', 'userdata', true, true);
                             _0x4d7024.FS.createDataFile('/home/web_user/retroarch/userdata', 'retroarch.cfg', _0x32dd27, true, true);
+                            
                         } else {
-                            _0x4d7024.FS.createDataFile('/etc', 'retroarch.cfg', _0x14d39f, true, true);
+                            _0x4d7024.FS.createDataFile('/etc', 'retroarch.cfg', getRetroArchCfg, true, true);
                             _0x4d7024._FS.createFolder('/home/web_user', '.config', true, true);
                             _0x4d7024._FS.createFolder('/home/web_user/.config', 'retroarch', true, true);
                             _0x4d7024.FS.createDataFile('/home/web_user/.config/retroarch', 'retroarch-core-options.cfg', _0x32dd27, true, true);
                         }
+                        
                         if (_0x55117c && Object.keys(_0x55117c).forEach(function(_0x2950d3) {
                                 if (_this.lightgun && 'nes' === getSystem(_this.system, true) && 'system_type' === _0x2950d3) return false;
                                 _0x32dd27 += '' .concat(_0x2950d3, ' = "').concat(_0x55117c[_0x2950d3], '"\n'), _0x1093f4.call(_this, _this.elements.container, 'start-game', function(_0x362c5c) {
